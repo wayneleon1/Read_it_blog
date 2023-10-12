@@ -1,5 +1,5 @@
 :root {
-  --blue: #007bff;
+  --blue: #0866ca;
   --bgcolor: #fff;
   --heading: #010100;
   --paragraph: #cfcece;
@@ -7,9 +7,13 @@
   --gray: #f9f8fa;
   --darkblack: #222930;
   --radius: 8px;
+  --puple: hsla(317, 88%, 67%, 0.8);
+  --yello_g: hsla(33, 95%, 70%, 0.8);
 }
-
-/* ================ Navbar ============= */
+.container {
+  padding: 0 6%;
+}
+/* ================ Navigation bar ============= */
 .logo {
   font-size: 18px;
   color: var(--heading);
@@ -22,12 +26,17 @@
   color: var(--yellow);
 }
 nav {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: var(--bgcolor);
-  padding: 20px 80px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 6%;
+  top: 0;
+  left: 0;
+  position: sticky;
+  /* position: fixed;
+  width: 100%; */
 }
 #navbar {
   display: flex;
@@ -39,30 +48,37 @@ nav {
   padding: 0 20px;
   position: relative;
 }
-#navbar li a {
-  text-decoration: none;
+#navbar li .tag {
+  color: var(--heading);
   font-size: 1.3rem;
   font-weight: 500;
-  color: var(--heading);
+  text-decoration: none;
   transition: 0.3s ease-in-out;
 }
-#navbar li a:hover,
-#navbar li a.active {
+
+/* #navbar li .tag.active {
+  color: var(--yellow);
+} */
+#navbar li .tag:hover {
   color: var(--yellow);
 }
+
 .btn {
-  padding: 12px 24px;
   border-radius: var(--radius);
   border: none;
   color: var(--heading);
+  cursor: pointer;
   font-size: 15px;
   font-weight: 500;
   margin-right: 5px;
-  cursor: pointer;
+  padding: 12px 24px;
 }
 .login {
   background-color: var(--yellow);
   color: var(--bgcolor);
+}
+.btn:hover {
+  opacity: 0.8;
 }
 .signup {
   background-color: var(--bgcolor);
@@ -76,22 +92,22 @@ nav {
   font-size: 18px;
   color: var(--heading);
 }
-
+/* =============== Responsiveness for Navigation Bar ================ */
 @media screen and (max-width: 769px) {
   #navbar {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    position: fixed;
-    top: 90px;
-    right: -200px;
-    width: 200px;
-    height: 100vh;
     background-color: var(--darkblack);
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
     padding: 40px 0 0 10px;
+    position: fixed;
+    right: -200px;
+    top: 80px;
     transition: 0.3s ease-in-out;
+    width: 200px;
   }
   .btn {
     display: none;
@@ -114,10 +130,51 @@ nav {
   }
 }
 /* ======================= Hero section ================ */
-.hero-image img {
-  background-position: center;
-  background-repeat: no-repeat;
-  object-fit: cover;
+.hero-section {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 100vh;
+  background: linear-gradient(90deg, var(--puple), var(--yello_g)),
+    url(../src/Images/Hero_image.jpg) no-repeat center center / cover;
+}
+.hero-content {
+  color: var(--bgcolor);
+}
+.hero-content p {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 70%;
+}
+.hero-content h1 {
+  font-size: 136px;
+  font-weight: 700;
+}
+/* ========= animate arrow icon ===== */
+.fa-long-arrow-down {
+  margin-top: 16px;
+  font-size: 30px;
+  position: relative;
+  animation: mymove infinite;
+  animation-duration: 1s;
+}
+@keyframes mymove {
+  from {
+    top: 0px;
+  }
+  to {
+    top: 20px;
+  }
+}
+/* =============== Responsiveness for hero section ================ */
+@media screen and (max-width: 769px) {
+  .hero-content h1 {
+    font-size: 52px;
+  }
+}
+
+/* ==================== Home Blog section ============= */
+.blog-section {
+  padding-top: 60px;
 }

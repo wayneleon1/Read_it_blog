@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", Arial, sans-serif;
+  color: inherit;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   background-color: #fff;

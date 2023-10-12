@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 class Navbar extends Component {
   state = { clicked: false };
   handleClick = () => {
@@ -8,29 +9,35 @@ class Navbar extends Component {
     return (
       <>
         <nav>
-          <a href="index.html" className="logo">
+          <Link to="/" className="tag logo">
             <h1>
               Read<span className="span">it</span>.
             </h1>
-          </a>
+          </Link>
           <div>
             <ul
               id="navbar"
               className={this.state.clicked ? "#navbar active" : "#navbar"}
             >
               <li>
-                <a href="#" className="active">
+                <Link to="/" className="tag active">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">Articles</a>
+                <Link to="/Article" className="tag">
+                  Articles
+                </Link>
               </li>
               <li>
-                <a href="#">Team</a>
+                <Link to="/Team" className="tag">
+                  Team
+                </Link>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link to="/Contact" className="tag">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
