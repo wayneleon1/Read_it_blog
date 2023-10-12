@@ -17,13 +17,13 @@ export default function Singleblog() {
           <div className="blog-social-icon">
             <div className="social-icons">
               <div className="twitter">
-                <p>twitter</p>
+                <p>t</p>
               </div>
               <div className="facebook">
-                <p>facebook</p>
+                <p>f</p>
               </div>
               <div className="instagram">
-                <p>instagram</p>
+                <p>i</p>
               </div>
             </div>
           </div>
