@@ -1,0 +1,41 @@
+.footer {
+  background: var(--darkblack);
+  color: var(--bgcolor);
+}
+.footer-content {
+  padding: 80px 0;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-row .title h4 {
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+.footer-row p {
+  color: var(--paragraph);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 273px;
+}
+.title h4 span {
+  color: var(--yellosw);
+}
+.mark {
+  font-size: 34px !important;
+  font-weight: 600 !important;
+}
+/* ================= icon ============== */
+.q-body > div {
+  margin-bottom: 16px;
+}
+.flex-content {
+  display: flex;
+  gap: 10px;
+}
+/* ====================== copy right ================== */
+.copyright {
+  text-align: center;
+}
