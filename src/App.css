@@ -1,5 +1,4 @@
 :root {
-  --blue: #0866ca;
   --bgcolor: #fff;
   --heading: #010100;
   --paragraph: #cfcece;
@@ -94,6 +93,9 @@ nav {
 }
 /* =============== Responsiveness for Navigation Bar ================ */
 @media screen and (max-width: 769px) {
+  .container {
+    padding: 0 3%;
+  }
   #navbar {
     align-items: flex-start;
     background-color: var(--darkblack);
@@ -115,7 +117,7 @@ nav {
   #navbar.active {
     right: 0px;
   }
-  #navbar li a {
+  #navbar li .tag {
     color: var(--bgcolor);
   }
   #navbar li {

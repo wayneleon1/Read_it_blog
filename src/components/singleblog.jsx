@@ -17,13 +17,25 @@ export default function Singleblog() {
           <div className="blog-social-icon">
             <div className="social-icons">
               <div className="twitter">
-                <p>t</p>
+                <a href="#">
+                  <span>
+                    <iconify-icon icon="ri:twitter-fill"></iconify-icon>
+                  </span>
+                </a>
               </div>
               <div className="facebook">
-                <p>f</p>
+                <a href="#">
+                  <span>
+                    <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+                  </span>
+                </a>
               </div>
               <div className="instagram">
-                <p>i</p>
+                <a href="#">
+                  <span>
+                    <iconify-icon icon="bi:instagram"></iconify-icon>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
