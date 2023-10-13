@@ -1,9 +1,14 @@
 import Hero from "../components/Hero";
+import ArticleBlog from "../components/ArticleBlog";
 export default function Article() {
   return (
     <>
       <Hero />
-      <h1>Article</h1>
+      <div className="Articles-section container">
+        <ArticleBlog />
+        <ArticleBlog />
+        <ArticleBlog />
+      </div>
     </>
   );
 }

@@ -16,6 +16,11 @@
 .blog-section {
   padding-top: 60px;
 }
+/* ======================== Article Blog Section =============== */
+.Articles-section {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
 
 @media screen and (max-width: 769px) {
   .container {

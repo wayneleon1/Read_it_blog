@@ -12,7 +12,7 @@
   color: var(--bgcolor);
 }
 .hero-content p {
-  text-align: left;
+  text-align: justify;
   font-size: 18px;
   font-weight: 600;
   max-width: 70%;
@@ -45,10 +45,6 @@
 .sub-title {
   text-align: center;
 }
-.next {
-  display: flex;
-  align-items: center;
-}
 /* ========= animate arrow icon ===== */
 .fa-long-arrow-down {
   margin-top: 16px;
@@ -68,6 +64,9 @@
 /* =============== Responsiveness for hero section ================ */
 @media screen and (max-width: 769px) {
   .hero-content h1 {
+    font-size: 52px;
+  }
+  .hero-page-title h2 {
     font-size: 52px;
   }
 }
