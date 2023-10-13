@@ -2,7 +2,7 @@ import HeroPage from "../components/HeroPage";
 export default function Contact() {
   return (
     <>
-      <HeroPage />
+      <HeroPage title={"Contact"} />
       <h1>Contact</h1>;
     </>
   );

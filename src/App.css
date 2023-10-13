@@ -16,3 +16,12 @@
 .blog-section {
   padding-top: 60px;
 }
+
+@media screen and (max-width: 769px) {
+  .container {
+    padding: 0 3%;
+  }
+  .blog-section {
+    padding-top: 30px;
+  }
+}

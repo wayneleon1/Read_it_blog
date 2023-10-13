@@ -79,9 +79,6 @@ nav {
 }
 /* =============== Responsiveness for Navigation Bar ================ */
 @media screen and (max-width: 769px) {
-  .container {
-    padding: 0 3%;
-  }
   #navbar {
     align-items: flex-start;
     background-color: var(--darkblack);

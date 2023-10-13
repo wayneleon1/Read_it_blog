@@ -7,6 +7,7 @@
 }
 .footer-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .footer-row .title h4 {
@@ -21,13 +22,13 @@
   max-width: 273px;
 }
 .title h4 span {
-  color: var(--yellosw);
+  color: var(--yellow);
 }
 .mark {
   font-size: 34px !important;
   font-weight: 600 !important;
 }
-/* ================= icon ============== */
+/* ================= Address icons ============== */
 .q-body > div {
   margin-bottom: 16px;
 }
@@ -35,7 +36,52 @@
   display: flex;
   gap: 10px;
 }
+/* ================= footer social icons ================== */
+.f-social-icons {
+  display: flex;
+}
+.f-social-icons > div {
+  background-color: #2d333c;
+  color: var(--bgcolor);
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+.f-social-icons > div:hover {
+  background-color: var(--yellow);
+}
 /* ====================== copy right ================== */
 .copyright {
   text-align: center;
+}
+/* ======================= Readit ====================== */
+.readit-body {
+  margin-bottom: 20px;
+}
+
+/* =============== info ============== */
+.info-body li.tag:hover {
+  color: var(--yellow);
+}
+
+/* ================= Responsiness for footer =============== */
+@media screen and (max-width: 769px) {
+  .footer-row > div {
+    margin-bottom: 10px;
+    flex-basis: 100%;
+    text-align: left;
+  }
+  .footer-row .title h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-content {
+    padding: 40px 0;
+  }
 }

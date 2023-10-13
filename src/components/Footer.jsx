@@ -1,4 +1,5 @@
 import "../components/style/footer.css";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <>
@@ -8,7 +9,7 @@ export default function Footer() {
             <div className="readit">
               <div className="title">
                 <h4 className="mark">
-                  Read<span>it</span>
+                  Read<span>it</span>.
                 </h4>
               </div>
               <div className="readit-body">
@@ -18,7 +19,7 @@ export default function Footer() {
                 </p>
               </div>
               <div className="readit-footer">
-                <div className="social-icons">
+                <div className="f-social-icons">
                   <div className="twitter">
                     <a href="#">
                       <span>
@@ -58,10 +59,41 @@ export default function Footer() {
               </div>
               <div className="info-body">
                 <ul>
-                  <li>Home</li>
-                  <li>About</li>
-                  <li>Articles</li>
-                  <li>Contact</li>
+                  <li className="tag">
+                    <Link to="/">
+                      <span>
+                        <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
+                      </span>{" "}
+                      Home
+                    </Link>
+                  </li>
+                  <li className="tag">
+                    <Link to="/Team">
+                      {" "}
+                      <span>
+                        <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
+                      </span>{" "}
+                      About
+                    </Link>
+                  </li>
+                  <li className="tag">
+                    <Link to="/Article">
+                      {" "}
+                      <span>
+                        <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
+                      </span>{" "}
+                      Articles
+                    </Link>
+                  </li>
+                  <li className="tag">
+                    <Link to="/Contact">
+                      {" "}
+                      <span>
+                        <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
+                      </span>{" "}
+                      Contact
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -89,7 +121,7 @@ export default function Footer() {
                     </span>
                   </div>
                   <div>
-                    <p>+2 392 3929 210</p>
+                    <p>+250 782 977 976</p>
                   </div>
                 </div>
                 <div className="email flex-content">
@@ -98,7 +130,7 @@ export default function Footer() {
                       <iconify-icon icon="bi:envelope-fill"></iconify-icon>
                     </span>
                   </div>
-                  <div>info@yourdomain.com</div>
+                  <div>rurangwaleon@gmail.com</div>
                 </div>
               </div>
             </div>
