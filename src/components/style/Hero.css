@@ -69,4 +69,7 @@
   .hero-page-title h2 {
     font-size: 52px;
   }
+  .hero-section {
+    margin-bottom: 20px;
+  }
 }

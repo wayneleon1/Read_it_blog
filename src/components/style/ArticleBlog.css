@@ -1,9 +1,8 @@
 .post {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19); */
   max-width: 370px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
 }
 .post-img {
   overflow: hidden;
@@ -51,8 +50,12 @@
   line-height: normal;
   font-weight: 700;
 }
+.post-title h1:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
 .post-desc p {
-  color: var(--paragraph);
+  color: #191919;
   font-size: 16px;
   line-height: 1.4;
   margin: 16px 0;
@@ -70,13 +73,20 @@
 }
 
 .Articles-section {
-  display: grid;
-  place-content: center;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* display: grid;
+  gap: 10px;
+  grid-template-columns: auto auto auto; */
 }
 /* ============================= Responsiveness for Article page====================== */
 @media screen and (max-width: 769px) {
   .Articles-section {
-    grid-template-columns: auto;
+    padding-bottom: 20px;
+  }
+  .post {
+    flex-basis: 100%;
+    margin-bottom: 10px;
   }
 }
