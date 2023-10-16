@@ -1,3 +1,4 @@
+import "../components/style/Hero.css";
 export default function Hero() {
   return (
     <>

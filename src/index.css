@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: "Poppins", Arial, sans-serif;
   color: inherit;
+  text-decoration: none;
+  list-style: none;
 }
 html {
   scroll-behavior: smooth;
