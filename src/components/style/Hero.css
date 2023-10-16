@@ -37,12 +37,13 @@
   font-size: 18px;
   font-weight: 500;
 }
-.hero-page-title {
+.hero-page-title h2 {
   text-align: center;
-  font-size: 136px !important;
+  font-size: 136.6px;
   font-weight: 700;
 }
 .sub-title {
+  vertical-align: top;
   text-align: center;
 }
 /* ========= animate arrow icon ===== */
