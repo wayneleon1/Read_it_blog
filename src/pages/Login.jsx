@@ -13,7 +13,10 @@ export default function Login() {
             <input type="password" placeholder="Password" />
             <button>Login</button>
             <p>
-              Don't hav any account? <Link to="/Signup">Register Here</Link>
+              Don't have any account?{" "}
+              <Link to="/Signup">
+                <span className="link">Register Here</span>
+              </Link>
             </p>
           </div>
         </form>

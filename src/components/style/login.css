@@ -16,7 +16,8 @@
   margin-bottom: 24px;
 }
 .login-container input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   border-radius: 5px;
   border: 0.8px solid rgb(128, 128, 128);
   width: 100%;
@@ -36,7 +37,9 @@ input[type="password"] {
   background-color: var(--yellow);
   margin: 24px 0;
 }
-
+.link {
+  color: rgb(4, 4, 186);
+}
 @media screen and (max-width: 769px) {
   .login-container {
     width: auto;
