@@ -25,11 +25,11 @@ class Navbar extends Component {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/Article" className="tag">
                   Articles
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/Team" className="tag">
                   Team

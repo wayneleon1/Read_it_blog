@@ -1,5 +1,6 @@
 import BlogImg from "../Images/Blog-Image.jpg";
 import "../components/style/ArticleBlog.css";
+import { Link } from "react-router-dom";
 const ArticleBlog = ({ title, image, desc, day, month, year }) => {
   return (
     <>
@@ -19,9 +20,12 @@ const ArticleBlog = ({ title, image, desc, day, month, year }) => {
           </div>
         </div>
         <div className="post-body">
-          <div className="post-title">
-            <h1>{title}</h1>
-          </div>
+          <Link to="/BlogSingle">
+            {" "}
+            <div className="post-title">
+              <h1>{title}</h1>
+            </div>
+          </Link>
           <div className="post-desc">
             <p>{desc}</p>
           </div>
@@ -30,7 +34,9 @@ const ArticleBlog = ({ title, image, desc, day, month, year }) => {
               <iconify-icon icon="eva:arrow-forward-fill"></iconify-icon>
             </div>
             <div>
-              <p>Read more</p>
+              <Link to="/BlogSingle">
+                <p>Read more</p>
+              </Link>
             </div>
           </div>
         </div>

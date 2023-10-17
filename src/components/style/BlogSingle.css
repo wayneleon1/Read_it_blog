@@ -1,0 +1,31 @@
+.BlogSingle-section {
+  padding-top: 112px;
+  padding-bottom: 112px;
+  display: grid;
+  grid-template-columns: 1fr 404px;
+}
+
+.BlogSingle-ft-img img {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 48px;
+}
+.BlogSingle-content h2 {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 32px;
+  line-height: 41.6px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.BlogSingle-content > p {
+  font-size: 16px;
+  color: rgb(128, 128, 128);
+  line-height: 28.8px;
+  margin-bottom: 16px;
+}
+
+.col-2 {
+  background-color: tomato;
+}
