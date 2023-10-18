@@ -1,31 +1,112 @@
-.BlogSingle-section {
+.blogSingle-section {
   padding-top: 112px;
   padding-bottom: 112px;
   display: grid;
   grid-template-columns: 1fr 404px;
 }
 
-.BlogSingle-ft-img img {
+.blogSingle-ft-img img {
   width: 100%;
   height: auto;
   background-repeat: no-repeat;
   background-position: center;
   margin-bottom: 48px;
 }
-.BlogSingle-content h2 {
+.blogSingle-content h2 {
   color: rgba(0, 0, 0, 0.8);
   font-size: 32px;
   line-height: 41.6px;
   margin-bottom: 16px;
   font-weight: 400;
 }
-.BlogSingle-content > p {
+.blogSingle-content > p {
   font-size: 16px;
   color: rgb(128, 128, 128);
   line-height: 28.8px;
   margin-bottom: 16px;
 }
-
+.publishe {
+  border-radius: 4px;
+  margin-right: 5px;
+  color: white;
+  padding: 5px 10px;
+  background-color: rgb(6, 178, 6);
+}
+.Author-section {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.author-avatar {
+  flex-basis: 60px;
+}
+.author-avatar img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  height: 60px;
+  width: 100%;
+}
+.author-info {
+  flex: 1;
+}
+.author-name h4 {
+  font-size: 16px;
+  color: var(--heading);
+  font-weight: 500;
+}
+.author-social-media {
+  display: flex;
+  align-items: center;
+}
+.author-social-media > div {
+  background-color: #f1f1f1;
+  margin-right: 10px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius);
+  transition: 0.3s ease-in-out;
+}
+.author-social-media > div:hover {
+  background-color: var(--yellow);
+}
 .col-2 {
-  background-color: tomato;
+  padding: 0 15px 15px 48px;
+}
+.col-2 .sidebar-box {
+  margin-bottom: 40px;
+}
+.categories h3,
+.recent-blog h3 {
+  color: royalblue;
+  font-size: 18px;
+  font-weight: 700;
+}
+.category-link {
+  border-bottom: 1px solid #808080;
+  color: rgb(26, 26, 26);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.category-link:hover {
+  color: var(--yellow);
+}
+
+/* ================ responsiveness for mobole devices =================== */
+@media screen and (max-width: 769px) {
+  .col-2 {
+    padding: 10px 5px;
+  }
+  .blogSingle-section {
+    padding-top: 55px;
+    padding-bottom: 55px;
+    grid-template-columns: 1fr;
+  }
 }

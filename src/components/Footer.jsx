@@ -77,12 +77,12 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="tag">
-                    <Link to="/Article">
+                    <Link to="/Login">
                       {" "}
                       <span>
                         <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
                       </span>{" "}
-                      Articles
+                      Join us
                     </Link>
                   </li>
                   <li className="tag">

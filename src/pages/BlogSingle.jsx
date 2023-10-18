@@ -2,16 +2,17 @@ import HeroPage from "../components/HeroPage";
 import "../components/style/BlogSingle.css";
 import image1 from "../Images/image1.jpg";
 import image2 from "../Images/image_2.jpg.webp";
+import avatar from "../Images/person_1.jpg.webp";
 const BlogSingle = () => {
   return (
     <>
       <HeroPage title={"Blog Single"} />
-      <div className="BlogSingle-section container">
+      <div className="blogSingle-section container">
         <div className="col-1">
-          <div className="BlogSingle-ft-img">
+          <div className="blogSingle-ft-img">
             <img src={image1} alt="Feature Photos" />
           </div>
-          <div className="BlogSingle-content">
+          <div className="blogSingle-content">
             <h2>It is a long established fact a reader be distracted</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -39,7 +40,7 @@ const BlogSingle = () => {
               nisi consequatur quos odit quasi repellat qui officiis reiciendis
               incidunt hic non? Debitis commodi aut, adipisci.
             </p>
-            <div className="BlogSingle-ft-img">
+            <div className="blogSingle-ft-img">
               <img src={image2} alt="Photos" />
             </div>
             <p>
@@ -76,10 +77,70 @@ const BlogSingle = () => {
               doloremque aut ratione. Harum voluptates mollitia illo minus
               praesentium, rerum ipsa debitis, inventore?
             </p>
+            <p>
+              <span className="publishe">Published</span>on 13 October 2023
+            </p>
           </div>
+          <div className="author-section">
+            <div className="author-avatar">
+              <img src={avatar} alt="author_profile_picture" />
+            </div>
+            <div className="author-info">
+              <div className="author-name">
+                <h4>George Washington</h4>
+              </div>
+              <div className="author-social-media">
+                <div className="twitter">
+                  <a href="#">
+                    <span>
+                      <iconify-icon icon="ri:twitter-fill"></iconify-icon>
+                    </span>
+                  </a>
+                </div>
+                <div className="facebook">
+                  <a href="#">
+                    <span>
+                      <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+                    </span>
+                  </a>
+                </div>
+                <div className="instagram">
+                  <a href="#">
+                    <span>
+                      <iconify-icon icon="bi:instagram"></iconify-icon>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
         </div>
         <div className="col-2">
-          <p>Col2</p>
+          <div className="sidebar-box">
+            <form action="#">
+              <div className="form-groupe">
+                <input type="text" placeholder="Type a keyword and hit enter" />
+              </div>
+            </form>
+          </div>
+          <div className="sidebar-box">
+            <div className="categories">
+              <h3>Categories</h3>
+              <ul>
+                <li className="category-link">Illustration</li>
+                <li className="category-link">Application</li>
+                <li className="category-link">Branding</li>
+                <li className="category-link">Design</li>
+                <li className="category-link">Marketing</li>
+              </ul>
+            </div>
+          </div>
+          <div className="sidebar-box">
+            <div className="recent-blog">
+              <h3>Recent Blog</h3>
+            </div>
+          </div>
         </div>
       </div>
     </>
