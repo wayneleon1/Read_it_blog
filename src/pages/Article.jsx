@@ -19,7 +19,7 @@ const Post = [
     featureImage: BlogImg,
     desc: ` A small river named Duden flows by their place and supplies it with the necessary regelialia.`,
     date: {
-      day: "20",
+      day: "21",
       month: "November",
       year: "2023",
     },
@@ -30,7 +30,40 @@ const Post = [
     featureImage: BlogImg,
     desc: ` A small river named Duden flows by their place and supplies it with the necessary regelialia.`,
     date: {
-      day: "17",
+      day: "20",
+      month: "November",
+      year: "2023",
+    },
+  },
+  {
+    id: 4,
+    title: "All you want to know about industrial laws",
+    featureImage: BlogImg,
+    desc: ` A small river named Duden flows by their place and supplies it with the necessary regelialia.`,
+    date: {
+      day: "13",
+      month: "March",
+      year: "2023",
+    },
+  },
+  {
+    id: 5,
+    title: "All you want to know about industrial laws",
+    featureImage: BlogImg,
+    desc: ` A small river named Duden flows by their place and supplies it with the necessary regelialia.`,
+    date: {
+      day: "09",
+      month: "March",
+      year: "2023",
+    },
+  },
+  {
+    id: 6,
+    title: "All you want to know about industrial laws",
+    featureImage: BlogImg,
+    desc: ` A small river named Duden flows by their place and supplies it with the necessary regelialia.`,
+    date: {
+      day: "01",
       month: "March",
       year: "2023",
     },
