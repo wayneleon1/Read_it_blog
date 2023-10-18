@@ -14,7 +14,7 @@ export default function Login() {
             <button>Login</button>
             <p>
               Don't have any account?{" "}
-              <Link to="/Signup">
+              <Link to="/signup">
                 <span className="link">Register Here</span>
               </Link>
             </p>
