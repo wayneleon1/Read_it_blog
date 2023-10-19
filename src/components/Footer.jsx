@@ -68,7 +68,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="tag">
-                    <Link to="/Team">
+                    <Link to="/team">
                       {" "}
                       <span>
                         <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
@@ -77,7 +77,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="tag">
-                    <Link to="/Login">
+                    <Link to="/login">
                       {" "}
                       <span>
                         <iconify-icon icon="grommet-icons:form-next"></iconify-icon>
@@ -86,7 +86,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="tag">
-                    <Link to="/Contact">
+                    <Link to="/contact">
                       {" "}
                       <span>
                         <iconify-icon icon="grommet-icons:form-next"></iconify-icon>

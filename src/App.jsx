@@ -8,20 +8,29 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Layout from "./components/Layout";
 import BlogSingle from "./pages/BlogSingle";
+import Notfound from "./pages/404-Page";
+import DashLayout from "./dashboard/components/DashLayout";
+import Dashboard from "./dashboard/pages/Dashboard";
+import Profile from "./dashboard/pages/profile";
 
 function App() {
   return (
     <>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Team" element={<Team />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/BlogSingle" element={<BlogSingle />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="team" element={<Team />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="blogSingle" element={<BlogSingle />} />
+          <Route path="*" element={<Notfound />} />
+        </Route>
+        <Route element={<DashLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+      </Routes>
     </>
   );
 }

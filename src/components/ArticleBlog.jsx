@@ -1,7 +1,7 @@
 import BlogImg from "../Images/Blog-Image.jpg";
 import "../components/style/ArticleBlog.css";
 import { Link } from "react-router-dom";
-const ArticleBlog = ({ title, image, desc, day, month, year }) => {
+const ArticleBlog = ({ title, image, desc }) => {
   return (
     <>
       <div className="post">
@@ -11,11 +11,11 @@ const ArticleBlog = ({ title, image, desc, day, month, year }) => {
         <div className="topper">
           <div className="topper-content">
             <div className="one">
-              <span className="day">{day}</span>
+              <span className="day">18</span>
             </div>
             <div className="two">
-              <p class="yr">{year}</p>
-              <p class="mos">{month}</p>
+              <p class="yr">2023</p>
+              <p class="mos">October</p>
             </div>
           </div>
         </div>

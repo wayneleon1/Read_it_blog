@@ -25,28 +25,23 @@ class Navbar extends Component {
                   Home
                 </Link>
               </li>
-              {/* <li>
-                <Link to="/Article" className="tag">
-                  Articles
-                </Link>
-              </li> */}
               <li>
-                <Link to="/Team" className="tag">
+                <Link to="/team" className="tag">
                   Team
                 </Link>
               </li>
               <li>
-                <Link to="/Contact" className="tag">
+                <Link to="/contact" className="tag">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <Link to="/Login">
+            <Link to="/login">
               <button className="btn login">Login</button>
             </Link>
-            <Link to="/Signup">
+            <Link to="/signup">
               <button className="btn signup">Sign Up</button>
             </Link>
           </div>

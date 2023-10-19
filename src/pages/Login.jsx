@@ -11,10 +11,14 @@ export default function Login() {
             </h4>
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
-            <button>Login</button>
+
+            <button>
+              <Link to="/dashboard">Login </Link>
+            </button>
+
             <p>
               Don't have any account?{" "}
-              <Link to="/Signup">
+              <Link to="/signup">
                 <span className="link">Register Here</span>
               </Link>
             </p>
