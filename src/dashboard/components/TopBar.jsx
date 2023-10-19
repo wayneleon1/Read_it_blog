@@ -30,7 +30,13 @@ const TopBar = () => {
               </div>
               <div className="notifications-counter">3</div>
             </div>
-            <div className="notification-icon-container">
+            <div className="comment-icon-container">
+              <div className="notification-icon">
+                <iconify-icon icon="ant-design:comment-outlined"></iconify-icon>
+              </div>
+              <div className="comment-counter">8</div>
+            </div>
+            <div className="messages-icon-container">
               <div className="email-icon">
                 <iconify-icon icon="clarity:email-line"></iconify-icon>
               </div>
@@ -42,8 +48,6 @@ const TopBar = () => {
           </div>
         </div>
       </div>
-      {/* <Link to="/dashboard">dashboard</Link>
-      <Link to="/profile">Profile</Link> */}
     </>
   );
 };
