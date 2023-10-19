@@ -1,10 +1,11 @@
 import TopBar from "./TopBar";
 import SideBar from "./SideBar";
-const DashLayout = ({ children }) => {
+import { Outlet } from "react-router-dom";
+const DashLayout = () => {
   return (
     <div>
       <TopBar />
-      {children}
+      <Outlet />
       <SideBar />
     </div>
   );
