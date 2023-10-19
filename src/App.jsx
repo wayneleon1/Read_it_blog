@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Contact from "./pages/Contact";
-import Article from "./pages/Article";
 import Home from "./pages/Home";
 import Team from "./pages/Team";
 import Login from "./pages/Login";
@@ -11,7 +10,9 @@ import BlogSingle from "./pages/BlogSingle";
 import Notfound from "./pages/404-Page";
 import DashLayout from "./dashboard/components/DashLayout";
 import Dashboard from "./dashboard/pages/Dashboard";
-import Profile from "./dashboard/pages/profile";
+import Post from "./dashboard/pages/Post";
+import Pages from "./dashboard/pages/Pages";
+import Inbox from "./dashboard/pages/Inbox";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
         </Route>
         <Route element={<DashLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/pages" element={<Pages />} />
+          <Route path="/inbox" element={<Inbox />} />
         </Route>
       </Routes>
     </>
