@@ -1,0 +1,114 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 24px;
+  background-color: var(--bgcolor);
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+.left-section {
+  display: flex;
+  align-items: center;
+}
+.left-section h1 {
+  font-style: 18px;
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.middle-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+}
+.search-btn {
+  background-color: rgb(240, 240, 240);
+  cursor: pointer;
+  border: 1px solid rgb(192, 192, 192);
+  font-size: 24px;
+  height: 40px;
+  padding-top: 4px;
+  width: 66px;
+  margin-left: -1px;
+  margin-right: 10px;
+}
+.search-bar {
+  border: 1px solid rgb(192, 192, 192);
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  font-size: 16px;
+  height: 40px;
+  padding-left: 12px;
+  width: 0;
+}
+.search-bar::placeholder {
+  font-size: 16px;
+}
+.newpost-btn {
+  align-items: center;
+  background-color: var(--yellow);
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 5px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  min-width: 128px;
+}
+.plus-icon {
+  font-size: 28px;
+  margin-top: 8px;
+}
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  flex-shrink: 0;
+}
+.icons-container {
+  display: flex;
+  gap: 20px;
+}
+.notification-icon,
+.email-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+.notification-icon-container,
+.messages-icon-container,
+.comment-icon-container {
+  position: relative;
+}
+.notifications-counter,
+.messages-counter,
+.comment-counter {
+  position: absolute;
+  top: 1px;
+  right: -5px;
+  background-color: rgb(194, 5, 5);
+  color: white;
+  font-size: 11px;
+  padding: 0 6px;
+  border-radius: 10px;
+}
+.current-user-profile img {
+  margin-top: 8px;
+  width: 45px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 45px;
+  border-radius: 50%;
+  border: 3px solid var(--yellow);
+}

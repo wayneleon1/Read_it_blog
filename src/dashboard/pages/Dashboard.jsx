@@ -1,7 +1,10 @@
+import "../components/style/dashboard.css";
 export default function Dashboard() {
   return (
     <>
-      <h2>Welcome to Dashboard</h2>
+      <div className="dashboard-section">
+        <h2>Welcome to Dashboard</h2>
+      </div>
     </>
   );
 }
