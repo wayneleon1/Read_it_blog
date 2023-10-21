@@ -39,10 +39,7 @@ class Navbar extends Component {
           </div>
           <div>
             <Link to="/login">
-              <button className="btn login">Login</button>
-            </Link>
-            <Link to="/signup">
-              <button className="btn signup">Sign Up</button>
+              <button className="btn login">Join us</button>
             </Link>
           </div>
           <div id="mobile" onClick={this.handleClick}>
