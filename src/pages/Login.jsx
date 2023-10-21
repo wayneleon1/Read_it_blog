@@ -12,9 +12,7 @@ export default function Login() {
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
 
-            <button>
-              <Link to="/dashboard">Login </Link>
-            </button>
+            <button>Login</button>
 
             <p>
               Don't have any account?{" "}
