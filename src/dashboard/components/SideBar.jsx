@@ -45,9 +45,9 @@ const SideBar = () => {
         }}
       >
         <div className="sidebar-icon">
-          <iconify-icon icon="fa-solid:users"></iconify-icon>
+          <iconify-icon icon="material-symbols:logout"></iconify-icon>
         </div>
-        <div className="sidebar-label">Users</div>
+        <div className="sidebar-label">Logout</div>
       </div>
     </div>
   );

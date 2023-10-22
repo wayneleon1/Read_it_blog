@@ -1,13 +1,26 @@
 import "../components/style/login.css";
 import "react-toastify/dist/ReactToastify.css";
-import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Login() {
   const errors = () => {
-    toast.error(" Fail to Login", {
+    toast.error("Incorrect Email or Password", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const success = () => {
+    toast.success("Login Successfully", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -28,23 +41,23 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
-  const handleApi = () => {
-    axios
-      .post("https://node-app-plsi.onrender.com/api/klab/user/login", {
-        email: email,
-        password: password,
-      })
-      .then((result) => {
-        localStorage.setItem("token", result.data.token);
-
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        errors();
-        setEmail("");
-        setPassword("");
-        console.log(error);
-      });
+  const handleApi = async () => {
+    try {
+      const result = await axios.post(
+        "https://node-app-plsi.onrender.com/api/klab/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      localStorage.setItem("token", result.data.token);
+      success();
+      navigate("/dashboard");
+    } catch (error) {
+      errors();
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
