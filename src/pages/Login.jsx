@@ -1,9 +1,23 @@
 import "../components/style/login.css";
-import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Login() {
+  const errors = () => {
+    toast.error(" Fail to Login", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +27,7 @@ export default function Login() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
+
   const handleApi = () => {
     axios
       .post("https://node-app-plsi.onrender.com/api/klab/user/login", {
@@ -20,11 +35,12 @@ export default function Login() {
         password: password,
       })
       .then((result) => {
-        alert("Login Successfully");
+        localStorage.setItem("token", result.data.token);
+
         navigate("/dashboard");
       })
       .catch((error) => {
-        alert("Incorrect email and password");
+        errors();
         setEmail("");
         setPassword("");
         console.log(error);
@@ -61,6 +77,7 @@ export default function Login() {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
