@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import "../components/style/dashboard.css";
+import { useEffect } from "react";
 export default function Dashboard() {
   return (
     <>

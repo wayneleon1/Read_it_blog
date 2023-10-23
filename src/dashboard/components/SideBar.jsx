@@ -1,6 +1,8 @@
 import "./style/sidebar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const SideBar = () => {
+  const navigate = useNavigate();
   return (
     <div className="sidebar">
       <Link to="/dashboard">
@@ -35,11 +37,17 @@ const SideBar = () => {
           <div className="sidebar-label">Pages</div>
         </div>
       </Link>
-      <div className="sidebar-link">
+      <div
+        className="sidebar-link"
+        onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/Login");
+        }}
+      >
         <div className="sidebar-icon">
-          <iconify-icon icon="fa-solid:users"></iconify-icon>
+          <iconify-icon icon="material-symbols:logout"></iconify-icon>
         </div>
-        <div className="sidebar-label">Users</div>
+        <div className="sidebar-label">Logout</div>
       </div>
     </div>
   );
