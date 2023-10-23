@@ -1,16 +1,16 @@
 .sidebar {
   position: fixed;
-  top: 74px;
+  top: 73px;
   left: 0;
   bottom: 0;
-  background-color: #052352;
+  border-right: 1px solid rgb(240, 240, 240);
 }
 .sidebar-link {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 8px 5px;
+  padding: 8px 15px;
 }
 .sidebar-link:hover {
   cursor: pointer;
@@ -18,10 +18,10 @@
 }
 .sidebar-icon {
   font-size: 24px;
-  color: white;
+  color: var(--heading);
   font-weight: 500;
 }
 .sidebar-label {
-  color: rgb(232, 232, 232);
+  color: black;
   font-size: 14px;
 }
