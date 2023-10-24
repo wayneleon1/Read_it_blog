@@ -23,7 +23,7 @@ export default function Home() {
             key={index}
             title={post.title}
             image={post.blogImage}
-            desc={post.content}
+            desc={post.content.substring(0, 100)}
           />
         ))}
       </div>

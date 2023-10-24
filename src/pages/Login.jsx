@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Login() {
   const errors = () => {
-    toast.error("Incorrect Email or Password", {
+    toast.error("Server error", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
