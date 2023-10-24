@@ -1,0 +1,12 @@
+.post-section-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+.post-section-row > div {
+  background-color: dodgerblue;
+  padding: 10px 24px;
+  border-radius: 4px;
+  color: white;
+}
