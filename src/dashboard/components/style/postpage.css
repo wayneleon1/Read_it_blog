@@ -1,3 +1,8 @@
+.post-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
 .post-section-row {
   width: 100%;
   display: grid;
@@ -9,4 +14,40 @@
   padding: 10px 24px;
   border-radius: 4px;
   color: white;
+}
+.manage-posts-container {
+  /* background-color: lightgray; */
+  padding: 18px;
+}
+/* ============= Manage post table ============= */
+#customers {
+  font-size: 16px;
+  font-weight: 400;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  background-color: var(--yellow);
+  color: black;
+  font-weight: 600;
+  text-transform: capitalize;
 }

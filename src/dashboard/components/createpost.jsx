@@ -3,6 +3,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import axios from "axios";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 function CreatePost({ closeModal }) {
   const errors = () => {
@@ -107,13 +109,25 @@ function CreatePost({ closeModal }) {
                 />
               </div>
               <div>
-                <textarea
-                  onChange={handleInput}
-                  cols="30"
-                  rows="10"
+                <CKEditor
+                  editor={ClassicEditor}
+                  data={setPost?.content}
+                  onReady={(editor) => {
+                    // You can store the "editor" and use when it is needed.
+                    console.log("Editor is ready to use!", editor);
+                  }}
                   name="content"
-                  placeholder="Content..."
-                ></textarea>
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    setPost({ ...post, content: data });
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log("Blur.", editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log("Focus.", editor);
+                  }}
+                />
               </div>
             </div>
             <div className="modal-footer">
