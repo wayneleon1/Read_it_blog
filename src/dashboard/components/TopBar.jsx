@@ -1,4 +1,3 @@
-import { Form, Link } from "react-router-dom";
 import avatar from "../components/images/avatar.webp";
 import "./style/topbar.css";
 const TopBar = () => {
