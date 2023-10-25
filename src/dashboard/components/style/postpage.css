@@ -1,53 +1,108 @@
 .post-section {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 10px;
 }
 .post-section-row {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 10px;
 }
 .post-section-row > div {
   background-color: dodgerblue;
-  padding: 10px 24px;
+  padding: 8px 14px;
   border-radius: 4px;
   color: white;
 }
 .manage-posts-container {
-  /* background-color: lightgray; */
+  background-color: rgb(253, 249, 249);
   padding: 18px;
+  overflow-x: scroll;
 }
 /* ============= Manage post table ============= */
 #customers {
+  width: 100%;
   font-size: 16px;
   font-weight: 400;
   border-collapse: collapse;
   width: 100%;
-  text-align: center;
+  /* table-layout: fixed; */
+  overflow-x: auto;
 }
 
 #customers td,
 #customers th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px;
 }
 
 #customers tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-
+#customers tr {
+  transition: 0.3s ease-in-out;
+}
 #customers tr:hover {
   background-color: #ddd;
 }
 
 #customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-
+  padding-top: 6px;
+  padding-bottom: 6px;
   background-color: var(--yellow);
   color: black;
   font-weight: 600;
   text-transform: capitalize;
+}
+.t-desc p {
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: normal;
+  word-spacing: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.t-title h4 {
+  letter-spacing: normal;
+  word-spacing: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.t-image img {
+  width: 80px;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.action-icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+.edit {
+  color: dodgerblue;
+}
+.delete {
+  color: crimson;
+}
+.views-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.views {
+  color: lightskyblue;
+}
+.views-label {
+  font-weight: 500;
 }

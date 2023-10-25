@@ -7,7 +7,7 @@ import axios from "axios";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-function CreatePost({ closeModal }) {
+function UpdatePost({ closeModal }) {
   const errors = () => {
     toast.error("Failed to create post", {
       position: "top-right",
@@ -32,48 +32,6 @@ function CreatePost({ closeModal }) {
       theme: "light",
     });
   };
-  const [post, setPost] = useState({
-    blogImage: "",
-    title: "",
-    content: "",
-  });
-  const handleInput = (event) => {
-    if (event.target.name === "blogImage") {
-      setPost({ ...post, blogImage: event.target.files[0] });
-    } else {
-      setPost({ ...post, [event.target.name]: event.target.value });
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append("blogImage", post.blogImage);
-    formData.append("title", post.title);
-    formData.append("content", post.content);
-
-    const apiKey = localStorage.getItem("token");
-
-    axios
-      .post(
-        "https://node-app-plsi.onrender.com/api/klab/blog/create",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        success();
-      })
-      .catch((error) => {
-        console.error(error);
-        errors();
-      });
-  };
 
   return (
     <>
@@ -83,10 +41,13 @@ function CreatePost({ closeModal }) {
             <button onClick={() => closeModal(false)}>X</button>
           </div>
           <div className="modal-title">
-            <h2>Create a post here!</h2>
+            <h2>Update a post here!</h2>
           </div>
-          <form action="#" onSubmit={handleSubmit}>
+          <form action="#">
             <div className="modal-body">
+              <div>
+                <input type="text" name="id" />
+              </div>
               <div>
                 <label class="file">
                   <input
@@ -95,23 +56,17 @@ function CreatePost({ closeModal }) {
                     name="blogImage"
                     accept="image/*"
                     aria-label="File browser example"
-                    onChange={handleInput}
                   />
                   <span class="file-custom"></span>
                 </label>
               </div>
               <div>
-                <input
-                  type="text"
-                  name="title"
-                  onChange={handleInput}
-                  placeholder="Post Title"
-                />
+                <input type="text" name="title" placeholder="Post Title" />
               </div>
               <div>
                 <CKEditor
                   editor={ClassicEditor}
-                  data={setPost?.content}
+                  data=""
                   onReady={(editor) => {
                     // You can store the "editor" and use when it is needed.
                     console.log("Editor is ready to use!", editor);
@@ -119,7 +74,6 @@ function CreatePost({ closeModal }) {
                   name="content"
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    setPost({ ...post, content: data });
                   }}
                   // onBlur={(event, editor) => {
                   //   console.log("Blur.", editor);
@@ -131,7 +85,7 @@ function CreatePost({ closeModal }) {
               </div>
             </div>
             <div className="modal-footer">
-              <button name="submit">Publish</button>
+              <button name="submit">Save</button>
               <button id="cancelbtn" onClick={() => closeModal(false)}>
                 Cancel
               </button>
@@ -144,4 +98,4 @@ function CreatePost({ closeModal }) {
   );
 }
 
-export default CreatePost;
+export default UpdatePost;
