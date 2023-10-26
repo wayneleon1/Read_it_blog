@@ -1,7 +1,6 @@
-import BlogImg from "../Images/Blog-Image.jpg";
 import "../components/style/ArticleBlog.css";
 import { Link } from "react-router-dom";
-const ArticleBlog = ({ title, image, desc }) => {
+const ArticleBlog = ({ title, image, desc, year }) => {
   return (
     <>
       <div className="post">
@@ -14,7 +13,7 @@ const ArticleBlog = ({ title, image, desc }) => {
               <span className="day">18</span>
             </div>
             <div className="two">
-              <p class="yr">2023</p>
+              <p class="yr">2022</p>
               <p class="mos">October</p>
             </div>
           </div>

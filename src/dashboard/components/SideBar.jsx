@@ -37,6 +37,14 @@ const SideBar = () => {
           <div className="sidebar-label">Pages</div>
         </div>
       </Link>
+      <Link to="/users">
+        <div className="sidebar-link">
+          <div className="sidebar-icon">
+            <iconify-icon icon="clarity:users-solid"></iconify-icon>
+          </div>
+          <div className="sidebar-label">Users</div>
+        </div>
+      </Link>
       <div
         className="sidebar-link"
         onClick={() => {

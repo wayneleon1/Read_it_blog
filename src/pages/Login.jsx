@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Login() {
   const errors = () => {
-    toast.error("Incorrect Email or Password", {
+    toast.error("Please make sure you entered correct info", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -51,12 +51,11 @@ export default function Login() {
         }
       );
       localStorage.setItem("token", result.data.token);
-      success();
+      // success();
+      alert("Login successfully");
       navigate("/dashboard");
     } catch (error) {
       errors();
-      setEmail("");
-      setPassword("");
     }
   };
 

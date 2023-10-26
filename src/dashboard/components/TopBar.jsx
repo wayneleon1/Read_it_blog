@@ -1,6 +1,10 @@
+import { useState } from "react";
 import avatar from "../components/images/avatar.webp";
 import "./style/topbar.css";
+import CreatePost from "./createpost";
+
 const TopBar = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       <div className="topbar">
@@ -14,7 +18,12 @@ const TopBar = () => {
           <button className="search-btn">
             <iconify-icon icon="ion:search-outline"></iconify-icon>
           </button>
-          <div className="newpost-btn">
+          <div
+            className="newpost-btn"
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
             New post
             <span className="plus-icon">
               <iconify-icon icon="icons8:plus"></iconify-icon>
@@ -47,6 +56,7 @@ const TopBar = () => {
           </div>
         </div>
       </div>
+      {openModal && <CreatePost closeModal={setOpenModal} />}
     </>
   );
 };
