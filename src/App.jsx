@@ -25,7 +25,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="blogSingle" element={<BlogSingle />} />
+          <Route path="blogSingle/:id" element={<BlogSingle />} />
           <Route path="*" element={<Notfound />} />
         </Route>
         <Route element={<DashLayout />}>

@@ -21,6 +21,7 @@ export default function Home() {
         {blogs.map((post, index) => (
           <ArticleBlog
             key={index}
+            Id={post._id}
             title={post.title}
             image={post.blogImage}
             desc={post.content}

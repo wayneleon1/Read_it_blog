@@ -1,89 +1,82 @@
 import HeroPage from "../components/HeroPage";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
 import "../components/style/BlogSingle.css";
-import image1 from "../Images/image1.jpg";
-import image2 from "../Images/image_2.jpg.webp";
-import avatar from "../Images/person_1.jpg.webp";
+import Cavatar from "../Images/commetor-avatar.png";
+
 const BlogSingle = () => {
+  const [comment, setComments] = useState([]);
+  const [message, setmessage] = useState([]);
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://node-app-plsi.onrender.com/api/klab/blog/read/${id}`)
+      .then((res) => {
+        setData(res.data.data);
+        setComments(res.data.data.Comment);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // ==================== post comment ==============
+  const handleComment = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("content", message);
+
+    const token = localStorage.getItem("token");
+
+    console.log("token", token);
+
+    if (token) {
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      try {
+        const response = await axios.post(
+          `https://node-app-plsi.onrender.com/api/klab/comment/create/${id}`,
+          formData,
+          { headers }
+        );
+
+        if (response.status === 200 || response.status === 201) {
+          alert("Comment added successfully");
+          setmessage("");
+        } else {
+          alert(`Request failed with status: ${response.status}`);
+        }
+      } catch (error) {
+        alert(`Fetch error: ${error.message}`);
+      }
+    } else {
+      alert("To add a comment you must first login.");
+    }
+  };
+
   return (
     <>
       <HeroPage title={"Blog Single"} />
       <div className="blogSingle-section container">
         <div className="col-1">
           <div className="blogSingle-ft-img">
-            <img src={image1} alt="Feature Photos" />
+            <img src={data.blogImage} alt="Feature Photos" />
           </div>
           <div className="blogSingle-content">
-            <h2>It is a long established fact a reader be distracted</h2>
+            <h2>{data.title}</h2>
+            <p>{data.content}</p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio
-              perferendis et doloribus unde architecto optio laboriosam porro
-              adipisci sapiente officiis nemo accusamus ad praesentium? Esse
-              minima nisi et. Dolore perferendis, enim praesentium omnis, iste
-              doloremque quia officia optio deserunt molestiae voluptates soluta
-              architecto tempora.
-            </p>
-            <p>
-              Molestiae cupiditate inventore animi, maxime sapiente optio, illo
-              est nemo veritatis repellat sunt doloribus nesciunt! Minima
-              laborum magni reiciendis qui voluptate quisquam voluptatem soluta
-              illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti
-              tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor
-              minima esse vero ut ea, repudiandae suscipit!
-            </p>
-            <h2>#2. Creative WordPress Themes</h2>
-            <p>
-              Temporibus ad error suscipit exercitationem hic molestiae totam
-              obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora
-              maiores ex architecto voluptatum aut officia doloremque. Error
-              dolore voluptas, omnis molestias odio dignissimos culpa ex earum
-              nisi consequatur quos odit quasi repellat qui officiis reiciendis
-              incidunt hic non? Debitis commodi aut, adipisci.
-            </p>
-            <div className="blogSingle-ft-img">
-              <img src={image2} alt="Photos" />
-            </div>
-            <p>
-              Quisquam esse aliquam fuga distinctio, quidem delectus veritatis
-              reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non
-              tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab
-              consectetur suscipit veritatis nulla quos quia aspernatur
-              perferendis, libero sint. Error, velit, porro. Deserunt minus,
-              quibusdam iste enim veniam, modi rem maiores.
-            </p>
-            <p>
-              Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum,
-              quo velit commodi rerum eum quidem pariatur! Quia fuga iste
-              tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro
-              explicabo soluta commodi libero voluptatem similique id quidem?
-              Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit
-              inventore, quia laboriosam harum excepturi ea.
-            </p>
-            <p>
-              Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam
-              quidem, dolor distinctio similique asperiores voluptas enim,
-              exercitationem ratione aut adipisci modi quod quibusdam iusto,
-              voluptates beatae iure nemo itaque laborum. Consequuntur et
-              pariatur totam fuga eligendi vero dolorum provident. Voluptatibus,
-              veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur
-              recusandae!
-            </p>
-            <p>
-              Voluptas dolores dignissimos dolorum temporibus, autem aliquam
-              ducimus at officia adipisci quasi nemo a perspiciatis provident
-              magni laboriosam repudiandae iure iusto commodi debitis est
-              blanditiis alias laborum sint dolore. Dolores, iure,
-              reprehenderit. Error provident, pariatur cupiditate soluta
-              doloremque aut ratione. Harum voluptates mollitia illo minus
-              praesentium, rerum ipsa debitis, inventore?
-            </p>
-            <p>
-              <span className="publishe">Published</span>on 13 October 2023
+              <span className="publishe">Published</span>
+              {data.blogDate}
             </p>
           </div>
           <div className="author-section">
             <div className="author-avatar">
-              <img src={avatar} alt="author_profile_picture" />
+              <img src={Cavatar} alt="author_profile_picture" />
             </div>
             <div className="author-info">
               <div className="author-name">
@@ -114,7 +107,57 @@ const BlogSingle = () => {
               </div>
             </div>
           </div>
-          <hr />
+
+          <div className="comment-section-wrap">
+            <h3>{comment.length} Comments</h3>
+            {Array.isArray(comment) && comment.length > 0 ? (
+              <ul className="comment-list">
+                {comment.map((comments, index) => (
+                  <li className="comment" key={index}>
+                    <div class="vcard">
+                      <img src={Cavatar} alt="Image placeholder" />
+                    </div>
+                    <div className="comment-body">
+                      <p className="commentor">
+                        {comments.blogCommentor.firstname}
+                      </p>
+                      <div className="meta">{comments.commentDate}</div>
+                      <p className="comment-content">{comments.content}</p>
+                      <p>
+                        <a href="#" class="reply">
+                          Reply
+                        </a>
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>Not yet commented</p>
+            )}
+            <div className="comment-form-wrap">
+              <h3>Leave a comment</h3>
+              <div className="contact-form-groupe">
+                <form onSubmit={handleComment}>
+                  <div className="form-groupe">
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="5"
+                      placeholder="Comment.."
+                      onChange={(e) => {
+                        setmessage(e.target.value);
+                      }}
+                    ></textarea>
+                  </div>
+                  <div className="form-groupe">
+                    <button className="send-btn">Post comment</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="col-2">
           <div className="sidebar-box">

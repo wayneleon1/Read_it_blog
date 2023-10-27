@@ -98,7 +98,68 @@
 .category-link:hover {
   color: var(--yellow);
 }
-
+.comment-section-wrap {
+  margin-top: 48px;
+  padding-top: 48px;
+}
+.comment-section-wrap h3 {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 400;
+  margin-bottom: 48px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.comment {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-bottom: 30px;
+}
+.vcard {
+  width: 80px;
+  float: left;
+}
+.vcard img {
+  width: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+  border-style: none;
+}
+.comment-body {
+  float: right;
+  width: calc(100% - 80px);
+}
+.commentor {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.meta {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.3;
+  line-height: 23.4px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.comment-content {
+  font-size: 16px;
+  color: rgb(128, 128, 128);
+  line-height: 28.8px;
+  margin-bottom: 8px;
+}
+.reply {
+  padding: 5px 10px;
+  background: #e6e6e6;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  border-radius: 4px;
+}
 /* ================ responsiveness for mobole devices =================== */
 @media screen and (max-width: 769px) {
   .col-2 {
