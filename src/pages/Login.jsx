@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Login() {
   const errors = () => {
-    toast.error("Please make sure you entered correct info", {
+    toast.error("Please enter valid credential", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,

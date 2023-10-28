@@ -121,7 +121,7 @@ export default function Post() {
                         </div>
                       </td>
                       <td>{post.blogDate}</td>
-                      <td>date</td>
+                      <td>{post.updateDate}</td>
                     </tr>
                   );
                 })}

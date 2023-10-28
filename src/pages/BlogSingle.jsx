@@ -1,6 +1,7 @@
 import HeroPage from "../components/HeroPage";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+
 import axios from "axios";
 import "../components/style/BlogSingle.css";
 import Cavatar from "../Images/commetor-avatar.png";
@@ -68,7 +69,9 @@ const BlogSingle = () => {
           </div>
           <div className="blogSingle-content">
             <h2>{data.title}</h2>
-            <p>{data.content}</p>
+            <p>
+              <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+            </p>
             <p>
               <span className="publishe">Published</span>
               {data.blogDate}
@@ -141,6 +144,7 @@ const BlogSingle = () => {
                 <form onSubmit={handleComment}>
                   <div className="form-groupe">
                     <textarea
+                      // disabled
                       name=""
                       id=""
                       cols="30"

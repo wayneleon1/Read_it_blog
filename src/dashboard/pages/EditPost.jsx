@@ -49,10 +49,17 @@ function EditPost() {
     formData.append("blogImage", data.blogImage);
     formData.append("title", data.title);
     formData.append("content", data.content);
+    const apiKey = localStorage.getItem("token");
     axios
       .put(
         `https://node-app-plsi.onrender.com/api/klab/blog/update/${id}`,
-        formData
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
       )
       .then((res) => {
         success();

@@ -59,7 +59,7 @@
   opacity: 0.7;
   cursor: pointer;
 }
-.post-desc p {
+.post-desc {
   color: rgb(128, 128, 128);
   font-weight: 400;
   font-size: 16px;

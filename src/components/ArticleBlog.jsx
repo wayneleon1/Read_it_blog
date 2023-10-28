@@ -25,9 +25,10 @@ const ArticleBlog = ({ Id, title, image, desc, year }) => {
               <h1>{title}</h1>
             </div>
           </Link>
-          <div className="post-desc">
-            <p>{desc}</p>
-          </div>
+          <div
+            className="post-desc"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          ></div>
           <div className="post-footer">
             <div>
               <iconify-icon icon="eva:arrow-forward-fill"></iconify-icon>
