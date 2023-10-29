@@ -31,6 +31,7 @@ export default function Login() {
       theme: "light",
     });
   };
+  ``;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

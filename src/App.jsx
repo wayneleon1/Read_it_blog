@@ -14,7 +14,7 @@ import Post from "./dashboard/pages/Post";
 import Pages from "./dashboard/pages/Pages";
 import Inbox from "./dashboard/pages/Inbox";
 import EditPost from "./dashboard/pages/EditPost";
-
+import { Users } from "./dashboard/pages/Users";
 function App() {
   return (
     <>
@@ -34,6 +34,7 @@ function App() {
           <Route path="/pages" element={<Pages />} />
           <Route path="/inbox" element={<Inbox />} />
           <Route path="editpost/:id" element={<EditPost />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
     </>
