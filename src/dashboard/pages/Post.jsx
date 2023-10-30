@@ -1,9 +1,9 @@
 import "../components/style/postpage.css";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import UpdatePost from "../components/updatePost";
 export default function Post() {
   // ================== success message ============
   const success = () => {
@@ -97,13 +97,10 @@ export default function Post() {
                         <p>{post.content}</p>
                       </td>
                       <td>
-                        <div
-                          className="action-icon edit"
-                          onClick={() => {
-                            setOpenModalUpdate(true);
-                          }}
-                        >
-                          <iconify-icon icon="mingcute:edit-line"></iconify-icon>
+                        <div className="action-icon edit">
+                          <Link to={`/editpost/${post._id}`}>
+                            <iconify-icon icon="mingcute:edit-line"></iconify-icon>
+                          </Link>
                         </div>
                       </td>
                       <td>
@@ -124,7 +121,7 @@ export default function Post() {
                         </div>
                       </td>
                       <td>{post.blogDate}</td>
-                      <td>date</td>
+                      <td>{post.updateDate}</td>
                     </tr>
                   );
                 })}

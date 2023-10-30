@@ -1,6 +1,6 @@
 import "../components/style/ArticleBlog.css";
 import { Link } from "react-router-dom";
-const ArticleBlog = ({ title, image, desc, year }) => {
+const ArticleBlog = ({ Id, title, image, desc, year }) => {
   return (
     <>
       <div className="post">
@@ -19,21 +19,22 @@ const ArticleBlog = ({ title, image, desc, year }) => {
           </div>
         </div>
         <div className="post-body">
-          <Link to="/BlogSingle">
+          <Link to={`/BlogSingle/${Id}`}>
             {" "}
             <div className="post-title">
               <h1>{title}</h1>
             </div>
           </Link>
-          <div className="post-desc">
-            <p>{desc}</p>
-          </div>
+          <div
+            className="post-desc"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          ></div>
           <div className="post-footer">
             <div>
               <iconify-icon icon="eva:arrow-forward-fill"></iconify-icon>
             </div>
             <div>
-              <Link to="/BlogSingle">
+              <Link to={`/BlogSingle/${Id}`}>
                 <p>Read more</p>
               </Link>
             </div>

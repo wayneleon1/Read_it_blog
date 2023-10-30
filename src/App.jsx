@@ -13,7 +13,8 @@ import Dashboard from "./dashboard/pages/Dashboard";
 import Post from "./dashboard/pages/Post";
 import Pages from "./dashboard/pages/Pages";
 import Inbox from "./dashboard/pages/Inbox";
-
+import EditPost from "./dashboard/pages/EditPost";
+import { Users } from "./dashboard/pages/Users";
 function App() {
   return (
     <>
@@ -24,7 +25,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="blogSingle" element={<BlogSingle />} />
+          <Route path="blogSingle/:id" element={<BlogSingle />} />
           <Route path="*" element={<Notfound />} />
         </Route>
         <Route element={<DashLayout />}>
@@ -32,6 +33,8 @@ function App() {
           <Route path="/post" element={<Post />} />
           <Route path="/pages" element={<Pages />} />
           <Route path="/inbox" element={<Inbox />} />
+          <Route path="editpost/:id" element={<EditPost />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
     </>
