@@ -80,17 +80,17 @@
 .col-2 .sidebar-box {
   margin-bottom: 40px;
 }
-.categories h3,
-.recent-blog h3 {
+.sidebar-box h3 {
   color: royalblue;
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 24px;
 }
 .category-link {
   border-bottom: 1px solid #808080;
   color: rgb(26, 26, 26);
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 10px 0;
   cursor: pointer;
   transition: 0.3s ease-in-out;
@@ -98,6 +98,48 @@
 .category-link:hover {
   color: var(--yellow);
 }
+
+/* =============== resent post ============== */
+.block {
+  display: flex;
+  margin: 6px 0;
+}
+.blog-img img {
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 80px;
+  height: 60px;
+  margin-right: 24px;
+  border-radius: var(--radius);
+}
+.heading {
+  color: rgba(2, 2, 2, 0.8);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  transition: 0.3s ease-in-out;
+}
+.heading:hover {
+  color: var(--yellow);
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+}
+.icon-person,
+.icon-chat,
+.icon-calendar {
+  font-size: 12px;
+  font-weight: 500;
+}
+/* ======================================================= */
 .comment-section-wrap {
   margin-top: 48px;
   padding-top: 48px;

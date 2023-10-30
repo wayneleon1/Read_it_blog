@@ -1,6 +1,14 @@
 import "../components/style/ArticleBlog.css";
 import { Link } from "react-router-dom";
-const ArticleBlog = ({ Id, title, image, desc, year }) => {
+
+const ArticleBlog = ({ Id, title, image, desc, data }) => {
+  // Function to format a date string using the user's locale
+  const formatYear = (dateString) => {
+    const options = {
+      year: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   return (
     <>
       <div className="post">
@@ -13,7 +21,7 @@ const ArticleBlog = ({ Id, title, image, desc, year }) => {
               <span className="day">18</span>
             </div>
             <div className="two">
-              <p class="yr">2022</p>
+              <p class="yr">{formatYear(data)}</p>
               <p class="mos">October</p>
             </div>
           </div>

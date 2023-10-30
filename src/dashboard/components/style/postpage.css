@@ -16,49 +16,48 @@
 }
 .manage-posts-container {
   background-color: rgb(253, 249, 249);
-  padding: 18px;
+  padding: 20px;
   overflow-x: scroll;
+  background-color: #f9fdfe;
+  border-radius: var(--radius);
 }
 /* ============= Manage post table ============= */
 #customers {
+  text-align: left;
+  font-size: 14px;
   width: 100%;
-  font-size: 16px;
-  font-weight: 400;
-  border-collapse: collapse;
-  width: 100%;
-  /* table-layout: fixed; */
-  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0 0.5em;
 }
 
 #customers td,
 #customers th {
-  border: 1px solid #ddd;
-  padding: 6px;
+  padding: 5px 8px;
+  font-weight: 400;
 }
 
-#customers tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-#customers tr {
+#customers tbody tr {
+  background-color: white;
+  box-shadow: 0px 5px 20px #0001;
   transition: 0.3s ease-in-out;
 }
-#customers tr:hover {
-  background-color: #ddd;
+#customers tbody tr:hover {
+  transform: scale(1.01);
 }
 
-#customers th {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  background-color: var(--yellow);
-  color: black;
+#customers thead th {
+  text-align: center;
   font-weight: 600;
-  text-transform: capitalize;
+  color: var(--heading);
 }
-.t-desc p {
+th {
+  padding: 5px;
   font-weight: 400;
-  font-size: 16px;
+}
+.t-desc {
+  font-weight: 400;
   letter-spacing: normal;
-  word-spacing: 4px;
+  word-spacing: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -79,12 +78,12 @@
   height: 60px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
   border-radius: 4px;
 }
 
 .action-icon {
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
 }
 .edit {
@@ -95,10 +94,8 @@
 }
 .views-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
 }
 .views {
   color: lightskyblue;

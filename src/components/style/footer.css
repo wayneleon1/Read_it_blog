@@ -11,6 +11,7 @@
   justify-content: space-between;
 }
 .footer-row .title h4 {
+  color: var(--bgcolor);
   font-size: 20px;
   margin-bottom: 40px;
   font-weight: 500;
@@ -56,8 +57,27 @@
   background-color: var(--yellow);
 }
 /* ====================== copy right ================== */
-.copyright {
+.copyright p {
   text-align: center;
+}
+.copyright {
+  position: relative;
+}
+.back-top {
+  font-size: 45px;
+  position: absolute;
+  right: 50px;
+  bottom: -40px;
+  animation: mymove infinite;
+  animation-duration: 1s;
+}
+@keyframes mymove {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 /* ======================= Readit ====================== */
 .readit-body {

@@ -2,7 +2,7 @@ import "../components/style/Hero.css";
 export default function HeroPage({ title }) {
   return (
     <>
-      <div className="hero-page-section">
+      <div id="hero" className="hero-page-section">
         <div className="hero-page-content container">
           <div className="hero-page-title">
             <h2>{title}</h2>
