@@ -9,6 +9,19 @@ const ArticleBlog = ({ Id, title, image, desc, data }) => {
     };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+
+  const formatDay = (dateString) => {
+    const options = {
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+  const formatMonth = (dateString) => {
+    const options = {
+      month: "long",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   return (
     <>
       <div className="post">
@@ -18,11 +31,11 @@ const ArticleBlog = ({ Id, title, image, desc, data }) => {
         <div className="topper">
           <div className="topper-content">
             <div className="one">
-              <span className="day">18</span>
+              <span className="day">{formatDay(data)}</span>
             </div>
             <div className="two">
               <p class="yr">{formatYear(data)}</p>
-              <p class="mos">October</p>
+              <p class="mos">{formatMonth(data)}</p>
             </div>
           </div>
         </div>

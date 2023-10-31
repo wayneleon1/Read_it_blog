@@ -1,11 +1,12 @@
 import HeroPage from "../components/HeroPage";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import "../components/style/BlogSingle.css";
 import Cavatar from "../Images/commetor-avatar.png";
-import recent from "../Images/travel-world.jpg";
 
 const BlogSingle = () => {
   const [comment, setComments] = useState([]);
@@ -13,6 +14,32 @@ const BlogSingle = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [blogs, setBlogs] = useState([]);
+
+  // ===================== alerts ==========================
+  const errors = () => {
+    toast.error("To add a comment you must login first.", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const success = () => {
+    toast.success("Comment added successfully", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   // ======================== fetching recent posts ====================
   useEffect(() => {
     const getData = async () => {
@@ -25,6 +52,7 @@ const BlogSingle = () => {
     };
     getData();
   }, []);
+
   // ======================== Fetching single blog ======================
   useEffect(() => {
     axios
@@ -58,7 +86,7 @@ const BlogSingle = () => {
         );
 
         if (response.status === 200 || response.status === 201) {
-          alert("Comment added successfully");
+          success();
           setmessage("");
           window.location.reload("");
         } else {
@@ -68,7 +96,7 @@ const BlogSingle = () => {
         alert(`Fetch error: ${error.message}`);
       }
     } else {
-      alert("To add a comment you must first login.");
+      errors();
     }
   };
   // Function to format a date string using the user's locale
@@ -80,7 +108,15 @@ const BlogSingle = () => {
     };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  // Function to format a date string using the user's locale
+  const formatRecent = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   return (
     <>
       <HeroPage title={"Blog Single"} />
@@ -219,7 +255,7 @@ const BlogSingle = () => {
                     </a>
                     <div class="text">
                       <h4 class="heading">
-                        <a href="#">{post.title}</a>
+                        <Link to={`/BlogSingle/${post._id}`}>{post.title}</Link>
                       </h4>
                       <div class="meta">
                         <div>
@@ -227,7 +263,7 @@ const BlogSingle = () => {
                             <span class="icon-calendar">
                               <iconify-icon icon="fluent:calendar-28-filled"></iconify-icon>
                             </span>{" "}
-                            Nov. 14, 2019
+                            {formatRecent(post.blogDate)}
                           </a>
                         </div>
                         <div>
@@ -254,6 +290,7 @@ const BlogSingle = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

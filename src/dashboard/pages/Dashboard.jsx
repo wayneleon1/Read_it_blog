@@ -1,6 +1,9 @@
 import "../components/style/dashboard.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import BarChartComponent from "../components/charts/Barchart";
+import PieChartComponent from "../components/charts/Piechart";
+import LineChartComponent from "../components/charts/Linechart";
 export default function Dashboard() {
   // ================== Total Posts ============
   const [blogs, setBlogs] = useState([]);
@@ -75,6 +78,11 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="chart-container">
+          <BarChartComponent />
+          <PieChartComponent />
+          <LineChartComponent />
         </div>
       </div>
     </>
