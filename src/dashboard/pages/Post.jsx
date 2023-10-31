@@ -5,6 +5,7 @@ import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 export default function Post() {
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
   // ================== success message ============
   const success = () => {
     toast.success("Post has deleted", {
@@ -45,8 +46,15 @@ export default function Post() {
       }
     }
   }
-
-  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  // Function to format a date string using the user's locale
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
   return (
     <>
@@ -67,13 +75,23 @@ export default function Post() {
         </div> */}
         <div className="manage-posts-container">
           <div className="manage-posts">
+            <div className="title-container">
+              <div>
+                <h1 className="title">Manage All Blogs</h1>
+              </div>
+              <div className="search-form">
+                <input type="text" placeholder="search..." />
+                <button className="user-search-btn">
+                  <iconify-icon icon="ion:search-outline"></iconify-icon>
+                </button>
+              </div>
+            </div>
             <table id="customers">
-              <caption>Manage all posts</caption>
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Title</th>
                   <th>Image</th>
+                  <th>Title</th>
                   <th>Description</th>
                   <th colSpan={2}>Action</th>
                   <th>Author</th>
@@ -87,14 +105,14 @@ export default function Post() {
                   return (
                     <tr key={index}>
                       <td>{index}</td>
-                      <td className="t-title">
-                        <h4>{post.title}</h4>
-                      </td>
                       <td className="t-image">
                         <img src={post.blogImage} alt="Photo" />
                       </td>
+                      <td className="t-title">
+                        <h4>{post.title}</h4>
+                      </td>
                       <td className="t-desc">
-                        <p>{post.content}</p>
+                        <p dangerouslySetInnerHTML={{ __html: post.content }} />
                       </td>
                       <td>
                         <div className="action-icon edit">
@@ -120,8 +138,8 @@ export default function Post() {
                           <div className="views-label">{post.views}</div>
                         </div>
                       </td>
-                      <td>{post.blogDate}</td>
-                      <td>{post.updateDate}</td>
+                      <td>{formatDate(post.blogDate)}</td>
+                      <td>{formatDate(post.updateDate)}</td>
                     </tr>
                   );
                 })}

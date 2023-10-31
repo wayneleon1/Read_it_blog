@@ -53,8 +53,15 @@ export default function Login() {
       );
       localStorage.setItem("token", result.data.token);
       // success();
-      alert("Login successfully");
-      navigate("/dashboard");
+      const role = result.data.users.role;
+      console.log(role);
+      if (role === "admin") {
+        alert("Login Successfully");
+        navigate("/dashboard");
+      } else {
+        alert("Login Successfully");
+        navigate("/");
+      }
     } catch (error) {
       errors();
     }

@@ -139,6 +139,11 @@ export default function Footer() {
             <p>
               Copyright ©2023 All rights reserved | This Website is made by Leon
             </p>
+            <a href="#hero">
+              <div className="back-top">
+                <iconify-icon icon="mdi:arrow-top-circle"></iconify-icon>
+              </div>
+            </a>
           </div>
         </div>
       </div>

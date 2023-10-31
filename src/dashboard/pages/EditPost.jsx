@@ -6,6 +6,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 
 function EditPost() {
   const errors = () => {
@@ -65,7 +66,7 @@ function EditPost() {
         success();
       });
   }
-
+  const navigate = useNavigate("");
   return (
     <div className="edit-section container-section">
       <div className="modalContainer">
@@ -123,7 +124,14 @@ function EditPost() {
           </div>
           <div className="modal-footer">
             <button name="submit">Update</button>
-            <button id="cancelbtn">Cancel</button>
+            <button
+              onClick={() => {
+                navigate("/post");
+              }}
+              id="cancelbtn"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

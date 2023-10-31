@@ -1,7 +1,9 @@
 import HeroPage from "../components/HeroPage";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import "../components/style/BlogSingle.css";
 import Cavatar from "../Images/commetor-avatar.png";
@@ -11,7 +13,47 @@ const BlogSingle = () => {
   const [message, setmessage] = useState([]);
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
+  // ===================== alerts ==========================
+  const errors = () => {
+    toast.error("To add a comment you must login first.", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const success = () => {
+    toast.success("Comment added successfully", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  // ======================== fetching recent posts ====================
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        "https://node-app-plsi.onrender.com/api/klab/blog/read"
+      );
+      const data = response.data.data;
+      setBlogs(data);
+      setIsPending(false);
+    };
+    getData();
+  }, []);
+
+  // ======================== Fetching single blog ======================
   useEffect(() => {
     axios
       .get(`https://node-app-plsi.onrender.com/api/klab/blog/read/${id}`)
@@ -31,8 +73,6 @@ const BlogSingle = () => {
 
     const token = localStorage.getItem("token");
 
-    console.log("token", token);
-
     if (token) {
       const headers = {
         Authorization: `Bearer ${token}`,
@@ -46,8 +86,9 @@ const BlogSingle = () => {
         );
 
         if (response.status === 200 || response.status === 201) {
-          alert("Comment added successfully");
+          success();
           setmessage("");
+          window.location.reload("");
         } else {
           alert(`Request failed with status: ${response.status}`);
         }
@@ -55,10 +96,27 @@ const BlogSingle = () => {
         alert(`Fetch error: ${error.message}`);
       }
     } else {
-      alert("To add a comment you must first login.");
+      errors();
     }
   };
-
+  // Function to format a date string using the user's locale
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+  // Function to format a date string using the user's locale
+  const formatRecent = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   return (
     <>
       <HeroPage title={"Blog Single"} />
@@ -74,7 +132,7 @@ const BlogSingle = () => {
             </p>
             <p>
               <span className="publishe">Published</span>
-              {data.blogDate}
+              {formatDate(data.blogDate)}
             </p>
           </div>
           <div className="author-section">
@@ -124,7 +182,9 @@ const BlogSingle = () => {
                       <p className="commentor">
                         {comments.blogCommentor.firstname}
                       </p>
-                      <div className="meta">{comments.commentDate}</div>
+                      <div className="meta">
+                        {formatDate(comments.commentDate)}
+                      </div>
                       <p className="comment-content">{comments.content}</p>
                       <p>
                         <a href="#" class="reply">
@@ -175,21 +235,62 @@ const BlogSingle = () => {
             <div className="categories">
               <h3>Categories</h3>
               <ul>
-                <li className="category-link">Illustration</li>
-                <li className="category-link">Application</li>
-                <li className="category-link">Branding</li>
+                <li className="category-link">Healt and Science</li>
+                <li className="category-link">Technology</li>
+                <li className="category-link">Fashion</li>
                 <li className="category-link">Design</li>
-                <li className="category-link">Marketing</li>
+                <li className="category-link">Sports</li>
               </ul>
             </div>
           </div>
           <div className="sidebar-box">
+            <h3>Recent Blogs</h3>
+
             <div className="recent-blog">
-              <h3>Recent Blog</h3>
+              {blogs &&
+                blogs.slice(0, 3).map((post, index) => (
+                  <div class="block" key={index}>
+                    <a class="blog-img">
+                      <img src={post.blogImage} alt="Image" />
+                    </a>
+                    <div class="text">
+                      <h4 class="heading">
+                        <Link to={`/BlogSingle/${post._id}`}>{post.title}</Link>
+                      </h4>
+                      <div class="meta">
+                        <div>
+                          <a href="#">
+                            <span class="icon-calendar">
+                              <iconify-icon icon="fluent:calendar-28-filled"></iconify-icon>
+                            </span>{" "}
+                            {formatRecent(post.blogDate)}
+                          </a>
+                        </div>
+                        <div>
+                          <a href="#">
+                            <span class="icon-person">
+                              <iconify-icon icon="solar:user-bold"></iconify-icon>
+                            </span>{" "}
+                            Admin
+                          </a>
+                        </div>
+                        <div>
+                          <a href="#">
+                            <span class="icon-chat">
+                              <iconify-icon icon="mdi:message-text"></iconify-icon>
+                            </span>{" "}
+                            19
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
