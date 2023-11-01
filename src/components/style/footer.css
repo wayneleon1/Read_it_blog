@@ -104,4 +104,8 @@
   .footer-content {
     padding: 40px 0;
   }
+  .back-top {
+    font-size: 40px;
+    right: 20px;
+  }
 }

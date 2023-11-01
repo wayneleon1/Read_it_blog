@@ -2,6 +2,37 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.about-video {
+  position: relative;
+}
+.play-btn {
+  padding: auto;
+  display: block;
+  position: absolute;
+  right: -35px;
+  bottom: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--yellow);
+  transition: 0.3s ease-in-out;
+}
+.Play-icon {
+  margin-top: 6px;
+  margin-left: 4px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.play-btn:hover,
+.Play-icon:hover {
+  transform: scale(1.07);
+}
+
 .about-video img {
   width: 100%;
   background-repeat: no-repeat;
@@ -89,5 +120,8 @@
   }
   .about-info {
     padding: 18px;
+  }
+  .play-btn {
+    display: none;
   }
 }
