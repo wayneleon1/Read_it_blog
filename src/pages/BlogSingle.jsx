@@ -121,17 +121,6 @@ const BlogSingle = () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // ================= Allow only logged in users to leave comment ================
-  const [disabled, SetDisabled] = useState(false);
-
-  const checkLogin = () => {
-    useEffect(() => {
-      if (!localStorage.getItem("token")) {
-        SetDisabled(true);
-      }
-    }, []);
-  };
-
   return (
     <>
       <HeroPage title={"Blog Single"} />
@@ -221,7 +210,7 @@ const BlogSingle = () => {
                 <form onSubmit={handleComment}>
                   <div className="form-groupe">
                     <textarea
-                      // disabled
+                      disabled={!localStorage.getItem("token") ? true : false}
                       cols="30"
                       rows="5"
                       placeholder="Comment.."
