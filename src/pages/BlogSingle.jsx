@@ -10,9 +10,10 @@ import Cavatar from "../Images/commetor-avatar.png";
 
 const BlogSingle = () => {
   const [comment, setComments] = useState([]);
+  const [author, setAuthor] = useState([]);
   const [message, setmessage] = useState([]);
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [single, setSingle] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
   // ===================== alerts ==========================
@@ -48,7 +49,7 @@ const BlogSingle = () => {
       );
       const data = response.data.data;
       setBlogs(data);
-      setIsPending(false);
+      console.log(data);
     };
     getData();
   }, []);
@@ -58,8 +59,10 @@ const BlogSingle = () => {
     axios
       .get(`https://node-app-plsi.onrender.com/api/klab/blog/read/${id}`)
       .then((res) => {
-        setData(res.data.data);
+        const data = res.data.data;
+        setSingle(data);
         setComments(res.data.data.Comment);
+        setAuthor(data.user);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -117,22 +120,34 @@ const BlogSingle = () => {
     };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+
+  // ================= Allow only logged in users to leave comment ================
+  const [disabled, SetDisabled] = useState(false);
+
+  const checkLogin = () => {
+    useEffect(() => {
+      if (!localStorage.getItem("token")) {
+        SetDisabled(true);
+      }
+    }, []);
+  };
+
   return (
     <>
       <HeroPage title={"Blog Single"} />
       <div className="blogSingle-section container">
         <div className="col-1">
           <div className="blogSingle-ft-img">
-            <img src={data.blogImage} alt="Feature Photos" />
+            <img src={single.blogImage} alt="Feature Photos" />
           </div>
           <div className="blogSingle-content">
-            <h2>{data.title}</h2>
+            <h2>{single.title}</h2>
             <p>
-              <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+              <div dangerouslySetInnerHTML={{ __html: single.content }}></div>
             </p>
             <p>
               <span className="publishe">Published</span>
-              {formatDate(data.blogDate)}
+              {formatDate(single.blogDate)}
             </p>
           </div>
           <div className="author-section">
@@ -141,7 +156,9 @@ const BlogSingle = () => {
             </div>
             <div className="author-info">
               <div className="author-name">
-                <h4>George Washington</h4>
+                <h4>
+                  {author.firstname}&nbsp;{author.lastname}
+                </h4>
               </div>
               <div className="author-social-media">
                 <div className="twitter">
@@ -205,8 +222,6 @@ const BlogSingle = () => {
                   <div className="form-groupe">
                     <textarea
                       // disabled
-                      name=""
-                      id=""
                       cols="30"
                       rows="5"
                       placeholder="Comment.."
@@ -279,7 +294,7 @@ const BlogSingle = () => {
                             <span class="icon-chat">
                               <iconify-icon icon="mdi:message-text"></iconify-icon>
                             </span>{" "}
-                            19
+                            {post.Comment.length}
                           </a>
                         </div>
                       </div>

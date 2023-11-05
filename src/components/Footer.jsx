@@ -130,14 +130,15 @@ export default function Footer() {
                       <iconify-icon icon="bi:envelope-fill"></iconify-icon>
                     </span>
                   </div>
-                  <div>rurangwaleon@gmail.com</div>
+                  <div>rurangwaleon10s@gmail.com</div>
                 </div>
               </div>
             </div>
           </div>
           <div className="copyright">
             <p>
-              Copyright ©2023 All rights reserved | This Website is made by Leon
+              Copyright ©2023 All rights reserved | This Website is made by
+              Rurangwa Leo
             </p>
             <a href="#hero">
               <div className="back-top">
