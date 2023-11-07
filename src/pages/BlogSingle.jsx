@@ -140,7 +140,10 @@ const BlogSingle = () => {
           </div>
           <div className="author-section">
             <div className="author-avatar">
-              <img src={Cavatar} alt="author_profile_picture" />
+              <img
+                src={!author.profile ? Cavatar : author.profile}
+                alt="author_profile"
+              />
             </div>
             <div className="author-info">
               <div className="author-name">
