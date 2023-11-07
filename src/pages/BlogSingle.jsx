@@ -20,7 +20,7 @@ const BlogSingle = () => {
   const errors = () => {
     toast.error("To add a comment you must login first.", {
       position: "top-center",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -32,7 +32,7 @@ const BlogSingle = () => {
   const success = () => {
     toast.success("Comment added successfully", {
       position: "top-center",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -91,7 +91,6 @@ const BlogSingle = () => {
         if (response.status === 200 || response.status === 201) {
           success();
           setmessage("");
-          window.location.reload("");
         } else {
           alert(`Request failed with status: ${response.status}`);
         }
@@ -182,7 +181,14 @@ const BlogSingle = () => {
                 {comment.map((comments, index) => (
                   <li className="comment" key={index}>
                     <div class="vcard">
-                      <img src={Cavatar} alt="Image placeholder" />
+                      <img
+                        src={
+                          !comments.blogCommentor.profile
+                            ? Cavatar
+                            : comments.blogCommentor.profile
+                        }
+                        alt="Image"
+                      />
                     </div>
                     <div className="comment-body">
                       <p className="commentor">
