@@ -56,11 +56,16 @@ export default function Login() {
       const role = result.data.users.role;
       console.log(role);
       if (role === "admin") {
-        alert("Login Successfully");
-        navigate("/dashboard");
+        success();
+
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 3000);
       } else {
-        alert("Login Successfully");
-        navigate("/");
+        success();
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       }
     } catch (error) {
       errors();

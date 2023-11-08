@@ -3,6 +3,10 @@
   padding-top: 112px;
   padding-bottom: 112px;
 }
+.contact-map {
+  background-color: rgb(248, 249, 250);
+  padding: 30px;
+}
 .contact-title h1 {
   color: var(--heading);
   font-size: 28px;
@@ -33,7 +37,7 @@
 }
 .contact-form-groupe {
   background-color: rgb(248, 249, 250);
-  padding: 48px;
+  padding: 30px;
 }
 .form-groupe {
   width: 100%;
@@ -84,6 +88,9 @@
     grid-template-columns: 1fr;
   }
   .contact-form-groupe {
+    padding: 10px;
+  }
+  .contact-map {
     padding: 10px;
   }
   .form-groupe {
